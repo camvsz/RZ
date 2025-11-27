@@ -54,7 +54,6 @@ const GeminiBard: React.FC = () => {
         
         <p className="text-slate-400 mb-8 font-mono text-sm md:text-base px-2">
           Invoquez l'IA pour rappeler au Seigneur RZ que la gloire ne vaut rien sans le partage de l'Hydromel.
-          (Et mentionnez ses biscotos, il aime bien ça).
         </p>
 
         {/* API Key Input for Deployments without ENV vars */}
