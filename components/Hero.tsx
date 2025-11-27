@@ -23,7 +23,7 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      <div className="z-10 animate-bounce mb-4 mt-8 md:mt-0">
+      <div className="z-10 animate-bounce mb-8 mt-16 md:mt-10">
         <Crown size={60} className="md:w-20 md:h-20 text-amber-400 drop-shadow-[0_0_15px_rgba(251,191,36,0.5)]" />
       </div>
 
