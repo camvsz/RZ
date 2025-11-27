@@ -45,7 +45,7 @@ const App: React.FC = () => {
           "Rageux, mais Juste."
         </p>
         <p className="text-slate-600 text-sm mt-2 font-mono">
-          Fait avec ❤️ et du code sale par Dame Pélépé
+          Fait par Dame Pélépé avec l'aide de l'IA
         </p>
       </footer>
     </div>
