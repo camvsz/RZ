@@ -6,7 +6,7 @@ import { Zap } from 'lucide-react';
 
 const App: React.FC = () => {
   return (
-    <div className="min-h-screen bg-slate-900 text-slate-200 selection:bg-amber-500 selection:text-white overflow-x-hidden">
+    <div className="min-h-screen bg-white text-black selection:bg-amber-500 selection:text-white overflow-x-hidden">
       <nav className="fixed top-0 w-full bg-slate-950/80 backdrop-blur-md z-50 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
           <div className="text-amber-500 font-bold medieval-font text-lg md:text-xl tracking-widest flex items-center gap-2">

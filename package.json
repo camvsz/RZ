@@ -2,11 +2,14 @@
   "name": "la-legende-du-seigneur-rz",
   "private": true,
   "version": "1.0.0",
+  "homepage": "https://camvsz.github.io/RZ",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@google/genai": "^1.30.0",
@@ -19,6 +22,7 @@
     "@types/react-dom": "^19.0.0",
     "@vitejs/plugin-react": "^4.2.1",
     "autoprefixer": "^10.4.22",
+    "gh-pages": "^6.3.0",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.3.3",
     "typescript": "^5.2.2",
