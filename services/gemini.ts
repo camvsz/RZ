@@ -1,9 +1,18 @@
+
 import { GoogleGenAI } from "@google/genai";
 import { SYSTEM_INSTRUCTION } from '../constants';
 
-// Safely access process.env to prevent crashes in environments where it's undefined
+// Safely access env vars in both Vite (import.meta.env) and Node-like (process.env) environments
 const getEnvApiKey = () => {
   try {
+    // Check Vite environment variable
+    // @ts-ignore
+    if (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.VITE_API_KEY) {
+      // @ts-ignore
+      return import.meta.env.VITE_API_KEY;
+    }
+    
+    // Check process.env (fallback or local dev)
     // @ts-ignore
     return (typeof process !== 'undefined' && process.env) ? process.env.API_KEY : '';
   } catch {

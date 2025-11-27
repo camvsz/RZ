@@ -1,11 +1,17 @@
+
 import React, { useState } from 'react';
 import { generateCongratulation } from '../services/gemini';
 import { Sparkles, ScrollText, Send, KeyRound } from 'lucide-react';
 
 const getHasEnvKey = () => {
   try {
+    // Check Vite
     // @ts-ignore
-    return !!(typeof process !== 'undefined' && process.env && process.env.API_KEY);
+    if (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.VITE_API_KEY) return true;
+    // Check Process
+    // @ts-ignore
+    if (typeof process !== 'undefined' && process.env && process.env.API_KEY) return true;
+    return false;
   } catch {
     return false;
   }
