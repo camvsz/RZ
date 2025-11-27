@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: './', // Important pour GitHub Pages car le site est souvent dans un sous-dossier
+  base: '/RZ/', // Changed for GitHub Pages to correctly resolve assets in a subfolder
   build: {
     outDir: 'dist',
   },
