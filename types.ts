@@ -3,7 +3,9 @@ import { LucideIcon } from 'lucide-react';
 export enum SkillType {
   TECH = 'Technique',
   MANAGEMENT = 'Commandement',
-  RETAIL = 'Commerce Antique'
+  RETAIL = 'Commerce Antique',
+  EDUCATION = 'Savoirs Ancestraux',
+  PROJECT = 'Artefact Forgé'
 }
 
 export interface Job {

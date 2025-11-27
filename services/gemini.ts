@@ -1,18 +1,17 @@
 import { GoogleGenAI } from "@google/genai";
 import { SYSTEM_INSTRUCTION } from '../constants';
 
-const apiKey = process.env.API_KEY || '';
+const envApiKey = process.env.API_KEY || '';
 
-// Initialize safely - if no key, we handle it in the component
-let ai: GoogleGenAI | null = null;
-if (apiKey) {
-  ai = new GoogleGenAI({ apiKey });
-}
+export const generateCongratulation = async (topic: string, customApiKey?: string): Promise<string> => {
+  const keyToUse = customApiKey || envApiKey;
 
-export const generateCongratulation = async (topic: string): Promise<string> => {
-  if (!ai) {
-    throw new Error("La Clé API Magique est manquante ! (API_KEY missing)");
+  if (!keyToUse) {
+    throw new Error("La Clé API Magique est manquante !");
   }
+
+  // Create instance on demand to support dynamic keys
+  const ai = new GoogleGenAI({ apiKey: keyToUse });
 
   try {
     const model = 'gemini-2.5-flash';
