@@ -3,38 +3,38 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main # Déclenche le workflow à chaque push sur la branche main
-  workflow_dispatch: # Permet de déclencher le workflow manuellement depuis l'onglet Actions
+      - main
+  workflow_dispatch:
 
 jobs:
   build:
-    runs-on: ubuntu-latest # Utilise la dernière version d'Ubuntu
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4 # Récupère le code de votre dépôt
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20' # Utilise Node.js version 20 (ou la version que vous utilisez localement)
+          node-version: '20'
 
       - name: Install dependencies
-        run: npm install # Installe les dépendances de votre projet
+        run: npm install
 
       - name: Build project
-        run: npm run build # Exécute la commande de build de Vite, qui crée le dossier 'dist'
+        run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist' # Upload le contenu du dossier 'dist' comme artefact
+          path: './dist'
 
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    needs: build # S'assure que le job 'build' est terminé avant de commencer le déploiement
+    needs: build
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
