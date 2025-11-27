@@ -1,7 +1,17 @@
 import { GoogleGenAI } from "@google/genai";
 import { SYSTEM_INSTRUCTION } from '../constants';
 
-const envApiKey = process.env.API_KEY || '';
+// Safely access process.env to prevent crashes in environments where it's undefined
+const getEnvApiKey = () => {
+  try {
+    // @ts-ignore
+    return (typeof process !== 'undefined' && process.env) ? process.env.API_KEY : '';
+  } catch {
+    return '';
+  }
+};
+
+const envApiKey = getEnvApiKey();
 
 export const generateCongratulation = async (topic: string, customApiKey?: string): Promise<string> => {
   const keyToUse = customApiKey || envApiKey;

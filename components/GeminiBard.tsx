@@ -2,6 +2,15 @@ import React, { useState } from 'react';
 import { generateCongratulation } from '../services/gemini';
 import { Sparkles, ScrollText, Send, KeyRound } from 'lucide-react';
 
+const getHasEnvKey = () => {
+  try {
+    // @ts-ignore
+    return !!(typeof process !== 'undefined' && process.env && process.env.API_KEY);
+  } catch {
+    return false;
+  }
+};
+
 const GeminiBard: React.FC = () => {
   const [generatedText, setGeneratedText] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -9,7 +18,7 @@ const GeminiBard: React.FC = () => {
   
   // State for manual API key entry (for GitHub Pages deployment)
   const [userApiKey, setUserApiKey] = useState('');
-  const [showKeyInput, setShowKeyInput] = useState(!process.env.API_KEY);
+  const [showKeyInput, setShowKeyInput] = useState(!getHasEnvKey());
 
   const handleGenerate = async () => {
     setLoading(true);
