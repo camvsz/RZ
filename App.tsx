@@ -13,9 +13,6 @@ const App: React.FC = () => {
             <Zap size={20} />
             THALES CORPS
           </div>
-          <div className="text-[10px] md:text-xs font-mono text-slate-400 text-right">
-            PROJET: SEIGNEUR RZ
-          </div>
         </div>
       </nav>
       

@@ -3,7 +3,7 @@ import { Job, SkillType } from './types';
 export const PERSONAL_STATS = [
   { label: 'Force', value: 'Titan de la Fonte', icon: 'Dumbbell' },
   { label: 'Fief', value: 'Comté de Nizza', icon: 'MapPin' },
-  { label: 'Clan', value: '2 Héritiers, 2 Félins', icon: 'Users' },
+  { label: 'Attribut', value: 'Géant', icon: 'Users' },
   { label: 'Quête', value: 'Tribut de l\'Hydromel', icon: 'Beer' },
 ];
 
